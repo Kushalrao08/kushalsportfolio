@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kushal Rao | Software Developer</title>
+
+    <!-- Meta for SEO -->
+    <meta name="description" content="Kushal Rao - CSE Student & Web Developer Portfolio" />
+    <meta name="author" content="Kushal Rao" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const backToTopBtn = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", () => {
+                backToTopBtn.style.display = window.scrollY > 200 ? "flex" : "none";
+            });
+
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+            AOS.init({ duration: 1000, once: true });
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Back to Top -->
+    <button id="backToTop" type="button" title="Go to top">
+        <i data-lucide="arrow-up">🡱</i>
+    </button>
+
+
+    <!-- Header -->
+    <header data-aos="fade-down">
+        <nav class="container sticky-nav">
+            <h1>Kushal Rao</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <button id="themeButton" aria-label="Toggle Theme">
+                    <i id="icon" class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero center" data-aos="fade-up">
+            <h2>Hi, I'm Kushal Rao</h2>
+            <p>Passionate Web Developer | CSE Undergraduate | Tech Enthusiast</p>
+            <a href="#projects" class="btn">View Projects</a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container" data-aos="fade-right">
+            <h2>About Me</h2>
+            <p>
+                I'm a Computer Science Engineering student at SDMIT, Ujire. I love building modern web applications,
+                solving problems with code, and continuously learning new technologies. I’m eager to contribute to
+                real-world software projects and grow as a full-stack developer.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container" data-aos="fade-up">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li><i class="fab fa-html5"></i> HTML5</li>
+                <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                <li><i class="fab fa-js"></i> JavaScript</li>
+                <li><i class="fab fa-react"></i> React</li>
+                <li><i class="fab fa-node-js"></i> Node.js</li>
+                <li><i class="fab fa-python"></i> Python</li>
+                <li><i class="fab fa-git-alt"></i> Git</li>
+                <li><i class="fab fa-figma"></i> Figma</li>
+            </ul>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container" data-aos="zoom-in">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="card" data-aos="fade-up">
+                    <h3>Netflix Clone</h3>
+                    <p>Frontend Netflix replica using HTML/CSS with video sections and responsive grid.</p>
+                    <a href="https://github.com/Kushalrao08/netflix-clone" target="_blank">View Code</a>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Email Validator</h3>
+                    <p>JavaScript email checker with regex and real-time UI feedback.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Calculator</h3>
+                    <p>Responsive calculator using JavaScript event handling and layout grid.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Team Portfolio</h3>
+                    <p>Collaborative portfolio with modular responsive sections.</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Food Ordering App</h3>
+                    <p>Restaurant UI with cart, animations, and menu filtering.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="container" data-aos="fade-up">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>B.E. in CSE</strong>, SDM Institute of Technology – CGPA: 8.2 (2022–Present)</li>
+                <li><strong>PUC (PCMB)</strong>, PACE UM PU College – 2022</li>
+                <li><strong>SSLC</strong>, BGS Central School – 2020</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container" data-aos="fade-up">
+            <h2>Contact Me</h2>
+
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer data-aos="fade-in">
+        <div class="contact-info">
+            <p>Email: <a href="mailto:kushalrao057@gmail.com">kushalrao057@gmail.com</a> Phone: <a
+                    href="tel:8618106857">+91
+                    8618106857</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Icons -->
+    <div class="floating-icons" data-aos="fade-left">
+        <a href="https://wa.me/918618106857" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:kushalrao057@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/Kushalrao08" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/kushal-rao-n-sinde-4795b6281" target="_blank" title="LinkedIn"><i
+                class="fab fa-linkedin-in"></i></a>
+        <a href="https://x.com/Kushal_O8" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/kushal._08" target="_blank" title="Instagram"><i
+                class="fab fa-instagram"></i></a>
+    </div>
+
+</body>
+
+</html>

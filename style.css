@@ -1,0 +1,591 @@
+/* --- THEME COLORS --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #eaf4f9;
+    --text-color: #222;
+    --accent-color: #00bfa6;
+    --card-bg: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius: 16px;
+    --section-spacing: 5rem;
+    --transition-speed: 0.3s;
+    --heading-font-size: 2.5rem;
+    --subheading-font-size: 1.5rem;
+    --paragraph-font-size: 1rem;
+}
+
+body.light-mode {
+    --bg-color: #f1f8fc;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    line-height: 1.7;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-size: var(--paragraph-font-size);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section,
+#about,
+#projects,
+#skills,
+#experience,
+#contact {
+    padding: var(--section-spacing) 2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin: var(--section-spacing) auto;
+    max-width: 1100px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    animation: fadeUp 0.8s ease both;
+    opacity: 0;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+section.visible,
+#about.visible,
+#projects.visible,
+#skills.visible,
+#experience.visible,
+#contact.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section:hover {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    transform: translateY(-5px);
+}
+
+/* --- HEADER --- */
+header {
+    background-color: rgb(73, 73, 226);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    margin-bottom: 3rem;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+nav h1 {
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+    font-size: 1.05rem;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    left: 0;
+    bottom: -5px;
+    transition: width var(--transition-speed);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    padding: 0.5rem;
+    transition: color var(--transition-speed) ease;
+}
+
+body.dark-mode .theme-toggle i {
+    color: var(--accent-color);
+}
+
+/* --- HERO --- */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #00bfa6, #005e54);
+    color: white;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    box-shadow: inset 0 -2px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: var(--section-spacing);
+    animation: fadeInDown 1s ease both;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: white;
+    color: #00bfa6;
+    padding: 1rem 2.2rem;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    font-size: 1.1rem;
+}
+
+.hero .btn:hover {
+    background: #e8e8e8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- BACK TO TOP BUTTON --- */
+#backToTop {
+    position: fixed;
+    bottom: 1rem;
+    /* Keeps it below navbar */
+    right: 1rem;
+    /* You can increase this to 2.5rem or more */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00bfa6;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+#backToTop:hover {
+    transform: scale(1.1);
+    background-color: #009e8c;
+}
+
+body.light-mode #backToTop {
+    background-color: #00bfa6;
+    color: white;
+}
+
+body.dark-mode #backToTop {
+    background-color: #00bfa6;
+    color: white;
+}
+
+/* --- THEME-AWARE BACK TO TOP --- */
+body.light-mode #backToTop {
+    background: #00bfa6;
+    color: #ffffff;
+}
+
+body.light-mode #backToTop:hover {
+    background: #009e8c;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #backToTop {
+    background: #00bfa6;
+    color: #ffffff;
+}
+
+body.dark-mode #backToTop:hover {
+    background: #009e8c;
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1);
+}
+
+/* --- PROJECTS --- */
+.project-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 2rem 0;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    animation: fadeUp 0.8s ease both;
+    opacity: 0;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.card.visible {
+    opacity: 1;
+}
+
+/* --- CONTACT SECTION --- */
+#contact {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    max-width: 750px;
+    margin: var(--section-spacing) auto;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    animation: fadeUp 0.8s ease both;
+    opacity: 0;
+}
+
+#contact.visible {
+    opacity: 1;
+}
+
+#contact form {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+#contact input,
+#contact textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 191, 166, 0.2);
+}
+
+body.dark-mode #contact input,
+body.dark-mode #contact textarea {
+    background-color: #222;
+    color: #eee;
+    border: 1px solid #444;
+}
+
+#contact button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#contact button:hover {
+    background-color: #009e8c;
+    transform: scale(1.02);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgb(73, 73, 226);
+    color: white;
+    margin-top: var(--section-spacing);
+    animation: fadeInUp 1s ease both;
+    opacity: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+footer.visible {
+    opacity: 1;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- RESPONSIVE NAV --- */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+}
+
+.floating-icons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.floating-icons a {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.6rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.floating-icons a:hover {
+    background: #009e8c;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.skill-item {
+    background-color: var(--bg-color);
+    padding: 1rem 1.4rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.skill-item i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    background-color: var(--card-bg);
+}
+
+/* --- ADDITIONAL STYLES FROM ORIGINAL DESIGN (PRESERVED FORMAT) --- */
+
+/* In case you use this class separately for navigation */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* General Button Styling */
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #009e8a;
+}
+
+/* Optional alternative skills list (useful if you use <ul> instead of flex container) */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.skills-list li {
+    background-color: rgb(73, 73, 226);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.skills-list li:hover {
+    transform: translateY(-3px);
+}
+
+.skills-list i {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+}
+
+/* Extra link styling inside project cards */
+.card h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+.card a {
+    text-decoration: none;
+    color: #00796b;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.card a:hover {
+    color: var(--accent-color);
+}
+
+.skill-item i,
+.floating-icons a i,
+.theme-toggle i {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.skill-item:hover i,
+.floating-icons a:hover i,
+.theme-toggle button:hover i {
+    color: var(--accent-color);
+}
+
+i[data-lucide] {
+    width: 24px;
+    height: 24px;
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+    vertical-align: middle;
+}
+
+.floating-icons a:hover i[data-lucide],
+button:hover i[data-lucide] {
+    stroke: #fff;
+}
